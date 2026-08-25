@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -8,24 +7,18 @@ import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => setMounted(true), []);
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <Button
       variant="ghost"
       size="icon"
       aria-label="Toggle color theme"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
-      {mounted && isDark ? (
-        <SunIcon className="size-4" />
-      ) : (
-        <MoonIcon className="size-4" />
-      )}
+      {/* Icon visibility is driven by the `.dark` class next-themes sets pre-hydration,
+          so there is no client-only state and no hydration mismatch. */}
+      <SunIcon className="hidden size-4 dark:block" />
+      <MoonIcon className="block size-4 dark:hidden" />
     </Button>
   );
 }

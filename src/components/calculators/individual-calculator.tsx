@@ -7,7 +7,6 @@ import { ArrowDownRight, Info, Lightbulb, RotateCcw, Sparkles } from "lucide-rea
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { ScoreGauge } from "@/components/viz/score-gauge";
 import { FootprintBars, FootprintScale } from "@/components/viz/footprint-bars";
 import { Stat } from "@/components/common";

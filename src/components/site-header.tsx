@@ -21,10 +21,6 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
@@ -81,6 +77,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setOpen(false)}
                 className={cn(
                   "rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
                   pathname.startsWith(item.href) && "bg-muted text-foreground",
@@ -91,6 +88,7 @@ export function SiteHeader() {
             ))}
             <Link
               href="/individual"
+              onClick={() => setOpen(false)}
               className={cn(buttonVariants({ variant: "default" }), "mt-2 h-10")}
             >
               Check your score
