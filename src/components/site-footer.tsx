@@ -9,6 +9,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
       { href: "/individual", label: "Individual score" },
       { href: "/organization", label: "Company score" },
       { href: "/methodology", label: "Methodology" },
+      { href: "/roadmap", label: "Roadmap" },
     ],
   },
   {
