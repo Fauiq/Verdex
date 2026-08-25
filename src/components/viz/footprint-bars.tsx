@@ -56,7 +56,7 @@ export function FootprintScale({
   const pct = (v: number) => `${Math.min(100, (v / max) * 100)}%`;
 
   const markers = [
-    { value: target2030, label: "1.5°C fair share (2.5t)", color: "var(--band-1)" },
+    { value: target2030, label: `1.5°C fair share (${target2030}t)`, color: "var(--band-1)" },
     { value: globalAverage, label: "Global avg", color: "var(--band-3)" },
   ];
   if (countryAverage) {

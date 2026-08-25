@@ -35,8 +35,6 @@ const SAMPLE = computeIndividual({
   renewableElectricity: true,
   heating: "heat_pump",
   homeSize: "apartment_large",
-  diet: "low_meat",
-  foodWaste: "low",
   shopping: "average",
   devices: 4,
   streamingHoursPerDay: 2,
@@ -222,8 +220,8 @@ export default function Home() {
                 </div>
                 <ul className="space-y-2.5 text-sm">
                   {[
-                    "Consumption-based footprint across mobility, home, food, goods and digital",
-                    "Benchmarked to the 2.5 tCO₂e (2030) fair-share pathway",
+                    "Consumption-based footprint across mobility, home, goods and digital",
+                    "Benchmarked to the 1.5°C fair-share pathway (net of food)",
                     "Personalized hotspots and the highest-leverage changes",
                   ].map((t) => (
                     <li key={t} className="flex gap-2.5">

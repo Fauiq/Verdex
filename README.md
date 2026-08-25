@@ -27,11 +27,17 @@ This repository contains:
 
 ### Personal green credit score
 
-Estimates a consumption‑based annual carbon footprint across five domains —
-mobility, home energy, food, goods & services, and **digital** — and scores it
-against the per‑capita **1.5 °C fair share** (2.5 tCO₂e by 2030). It highlights
+Estimates a consumption‑based annual carbon footprint across four domains —
+mobility, home energy, goods & services, and **digital** — and scores it
+against the per‑capita **1.5 °C fair share** (net of food). It highlights
 your hotspots and the highest‑leverage changes, and includes a forward‑looking
 trajectory component (a credit‑score is about direction, not just level).
+
+> **Diet is intentionally excluded from the score.** What a person eats is a
+> personal/cultural choice, so a green *credit* score should not moralise it. To
+> keep the comparison honest, the fair‑share budget and national averages are
+> expressed net of food (~20% of a household footprint; Ivanova et al. 2016), so
+> a non‑food footprint is compared with a non‑food budget.
 
 ### Company green credit score
 

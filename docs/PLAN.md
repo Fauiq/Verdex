@@ -113,9 +113,11 @@ consumer graph and partner network.
 
 ### 6.1 Personal green credit score (built in Phase 0)
 
-- Consumption‑based footprint across **mobility, home energy, food, goods,
-  digital**, using documented factors.
-- Scored against the **1.5 °C fair share** (2.5 tCO₂e by 2030) via monotonic
+- Consumption‑based footprint across **mobility, home energy, goods, digital**,
+  using documented factors. **Diet is intentionally excluded** — a personal
+  choice a green credit score should not moralise; benchmarks are taken net of
+  food (~20%, Ivanova et al. 2016) so the comparison stays like‑for‑like.
+- Scored against the **1.5 °C fair share** (net of food) via monotonic
   anchors pinned to real benchmarks.
 - **Level (80%) + trajectory (20%)** composite; offsets capped so they can’t buy
   a top grade (mitigation hierarchy).

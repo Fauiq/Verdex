@@ -3,9 +3,7 @@ import {
   CLOUD_AI_TCO2E,
   COUNTRIES,
   DEVICE_EMBODIED_TCO2E,
-  DIET_TCO2E,
   FAIR_SHARE,
-  FOOD_WASTE_MULTIPLIER,
   FOOTPRINT_SCORE_ANCHORS,
   HEATING_IS_ELECTRIC,
   HEATING_TCO2E,
@@ -63,10 +61,6 @@ function homeFootprint(i: IndividualInputs, gridKgPerKwh: number): number {
   heat = heat / household;
 
   return elec + heat;
-}
-
-function foodFootprint(i: IndividualInputs): number {
-  return DIET_TCO2E[i.diet] * FOOD_WASTE_MULTIPLIER[i.foodWaste];
 }
 
 function digitalFootprint(i: IndividualInputs): number {
@@ -134,16 +128,6 @@ function buildRecommendations(
       savingTco2e: 1.0,
     });
   }
-  if (i.diet === "high_meat" || i.diet === "average") {
-    const saving = DIET_TCO2E[i.diet] - DIET_TCO2E.low_meat;
-    recs.push({
-      area: "food",
-      title: "Shift toward a plant-rich, low-meat diet",
-      detail:
-        "Reducing red meat and dairy is the highest-leverage food change and also cuts food-related water use.",
-      savingTco2e: round2(saving),
-    });
-  }
   if (i.shopping === "high" || i.shopping === "very_high") {
     recs.push({
       area: "goods",
@@ -176,7 +160,6 @@ export function computeIndividual(i: IndividualInputs): IndividualResult {
   const rawDomains: { key: string; label: string; tco2e: number; note?: string }[] = [
     { key: "mobility", label: "Mobility & travel", tco2e: mobilityFootprint(i, grid) },
     { key: "home", label: "Home energy", tco2e: homeFootprint(i, grid) },
-    { key: "food", label: "Food & diet", tco2e: foodFootprint(i) },
     { key: "goods", label: "Goods & services", tco2e: SHOPPING_TCO2E[i.shopping] },
     {
       key: "digital",
@@ -236,8 +219,6 @@ export const DEFAULT_INDIVIDUAL: IndividualInputs = {
   renewableElectricity: false,
   heating: "natural_gas",
   homeSize: "house_medium",
-  diet: "average",
-  foodWaste: "medium",
   shopping: "high",
   devices: 6,
   streamingHoursPerDay: 3,

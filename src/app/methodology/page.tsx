@@ -7,8 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { SectionHeading } from "@/components/common";
 import { BANDS, toScore } from "@/lib/scoring/bands";
 import {
-  DIET_TCO2E,
   FAIR_SHARE,
+  FOOD_SHARE_OF_FOOTPRINT,
   FOOTPRINT_SCORE_ANCHORS,
   INDIVIDUAL_WEIGHTS,
   PILLAR_LABELS,
@@ -125,16 +125,18 @@ export default function MethodologyPage() {
 
         <Section id="individual" eyebrow="Personal score" title="From lifestyle to a fair-share grade">
           <p>
-            We estimate a consumption-based annual footprint across five domains — mobility, home
-            energy, food, goods &amp; services, and digital — using documented emission factors
-            (<Cite id="birnik2013" />, <Cite id="ivanova2016" />, <Cite id="scarborough2014" />).
-            The total is compared against the per-capita fair share for 1.5°C.
+            We estimate a consumption-based annual footprint across four domains — mobility, home
+            energy, goods &amp; services, and digital — using documented emission factors
+            (<Cite id="birnik2013" />, <Cite id="ivanova2016" />). The total is compared against the
+            per-capita fair share for 1.5°C, net of food (see below).
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Card>
               <CardContent className="p-5">
-                <h4 className="text-sm font-semibold text-foreground">Fair-share targets</h4>
+                <h4 className="text-sm font-semibold text-foreground">
+                  Fair-share targets (non-food)
+                </h4>
                 <p className="mt-1 text-xs">Per capita, tCO₂e/yr (<Cite id="hotorcool2021" />)</p>
                 <dl className="mt-3 space-y-1.5 text-sm">
                   <Row k="2030 target" v={`${FAIR_SHARE.target2030} t`} />
@@ -147,7 +149,7 @@ export default function MethodologyPage() {
             <Card>
               <CardContent className="p-5">
                 <h4 className="text-sm font-semibold text-foreground">Footprint → level score</h4>
-                <p className="mt-1 text-xs">Monotonic anchors, interpolated</p>
+                <p className="mt-1 text-xs">Monotonic anchors (non-food), interpolated</p>
                 <dl className="mt-3 space-y-1.5 text-sm">
                   {FOOTPRINT_SCORE_ANCHORS.map(([t, s]) => (
                     <Row key={t} k={`${t} tCO₂e`} v={`${s} / 100`} />
@@ -168,16 +170,23 @@ export default function MethodologyPage() {
           <Card>
             <CardContent className="p-5">
               <h4 className="text-sm font-semibold text-foreground">
-                Example: diet factors (tCO₂e/yr)
+                Why diet is excluded from the score
               </h4>
-              <p className="mt-1 text-xs">
-                One domain&apos;s factors, shown in full (<Cite id="scarborough2014" />)
+              <p className="mt-2 text-sm">
+                Verdex deliberately does <strong className="text-foreground">not</strong> score
+                diet. What a person eats is a personal and cultural choice, and a green
+                <em> credit</em> score should not moralise it. Removing it also avoids penalising
+                individuals for one of the noisiest, hardest-to-self-report categories.
               </p>
-              <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm sm:grid-cols-3">
-                {Object.entries(DIET_TCO2E).map(([k, v]) => (
-                  <Row key={k} k={k.replace("_", " ")} v={`${v} t`} />
-                ))}
-              </div>
+              <p className="mt-2 text-sm">
+                To keep the comparison honest, we don&apos;t simply drop food from your footprint
+                while leaving the target untouched — that would inflate every grade. Instead, the
+                fair-share budget and national averages above are expressed{" "}
+                <strong className="text-foreground">net of food</strong>. Food is about{" "}
+                {Math.round(FOOD_SHARE_OF_FOOTPRINT * 100)}% of a household&apos;s carbon footprint
+                (<Cite id="ivanova2016" />), so a non-food footprint is compared with a non-food
+                budget — like for like.
+              </p>
             </CardContent>
           </Card>
         </Section>

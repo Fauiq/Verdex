@@ -61,7 +61,7 @@ describe("individual score", () => {
     const r = computeIndividual(DEFAULT_INDIVIDUAL);
     expect(r.score).toBeGreaterThanOrEqual(300);
     expect(r.score).toBeLessThanOrEqual(850);
-    expect(r.domains).toHaveLength(5);
+    expect(r.domains).toHaveLength(4);
     // shares should sum to ~1
     const shareSum = r.domains.reduce((a, d) => a + d.share, 0);
     expect(shareSum).toBeCloseTo(1, 5);
@@ -79,8 +79,6 @@ describe("individual score", () => {
       renewableElectricity: true,
       heating: "heat_pump",
       homeSize: "apartment_small",
-      diet: "vegan",
-      foodWaste: "low",
       shopping: "minimal",
       devices: 2,
       streamingHoursPerDay: 1,
@@ -97,8 +95,6 @@ describe("individual score", () => {
       renewableElectricity: false,
       heating: "oil",
       homeSize: "house_large",
-      diet: "high_meat",
-      foodWaste: "high",
       shopping: "very_high",
       trendVsLastYear: "up",
     };
@@ -121,15 +117,13 @@ describe("individual score", () => {
       renewableElectricity: true,
       heating: "heat_pump",
       homeSize: "apartment_small",
-      diet: "vegan",
-      foodWaste: "low",
       shopping: "minimal",
       devices: 2,
       streamingHoursPerDay: 1,
       cloudAiUse: "low",
       trendVsLastYear: "down",
     });
-    expect(r.totalTco2e).toBeLessThan(3.5);
+    expect(r.totalTco2e).toBeLessThan(2.5);
     expect(r.band.id).toBeLessThanOrEqual(2);
   });
 

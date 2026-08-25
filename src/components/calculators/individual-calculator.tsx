@@ -23,7 +23,6 @@ import { bandVar } from "@/lib/colors";
 import type {
   CarType,
   CountryCode,
-  DietType,
   HeatingFuel,
   HomeSize,
   IndividualInputs,
@@ -48,15 +47,6 @@ const USAGE_OPTIONS: Option<UsageLevel>[] = [
   { value: "low", label: "Low" },
   { value: "medium", label: "Medium" },
   { value: "high", label: "High" },
-];
-
-const DIET_OPTIONS: Option<DietType>[] = [
-  { value: "vegan", label: "Vegan" },
-  { value: "vegetarian", label: "Vegetarian" },
-  { value: "pescatarian", label: "Pescatarian" },
-  { value: "low_meat", label: "Low meat" },
-  { value: "average", label: "Average / mixed" },
-  { value: "high_meat", label: "High meat" },
 ];
 
 const HEATING_OPTIONS: Option<HeatingFuel>[] = [
@@ -224,19 +214,10 @@ export function IndividualCalculator() {
         <div className="grid gap-6 sm:grid-cols-2">
           <Card>
             <CardContent className="p-6">
-              <FieldGroup title="Food & consumption">
-                <SelectField
-                  label="Diet"
-                  value={inputs.diet}
-                  onChange={(v) => update("diet", v)}
-                  options={DIET_OPTIONS}
-                />
-                <SelectField
-                  label="Food waste"
-                  value={inputs.foodWaste}
-                  onChange={(v) => update("foodWaste", v)}
-                  options={USAGE_OPTIONS}
-                />
+              <FieldGroup
+                title="Goods & shopping"
+                description="Embodied emissions of the things you buy."
+              >
                 <SelectField
                   label="Shopping / goods"
                   value={inputs.shopping}
@@ -437,7 +418,9 @@ export function IndividualCalculator() {
         <div className="flex items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs text-muted-foreground">
           <Info className="mt-0.5 size-3.5 shrink-0" />
           <span>
-            Estimates use documented emission factors and are indicative. See the{" "}
+            Estimates use documented emission factors and are indicative. Diet is
+            intentionally excluded — the score covers mobility, home, goods and digital.
+            See the{" "}
             <Link href="/methodology" className="font-medium text-foreground underline underline-offset-2">
               methodology
             </Link>{" "}

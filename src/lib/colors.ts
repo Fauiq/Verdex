@@ -5,11 +5,10 @@ export function bandVar(id: BandId): string {
   return `var(--band-${id})`;
 }
 
-/** Fixed, legible palette for the five individual footprint domains. */
+/** Fixed, legible palette for the individual footprint domains. */
 export const DOMAIN_COLORS: Record<string, string> = {
   mobility: "var(--band-5)",
   home: "var(--band-4)",
-  food: "var(--band-3)",
   goods: "var(--band-2)",
   digital: "var(--band-1)",
 };

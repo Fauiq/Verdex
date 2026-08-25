@@ -146,18 +146,7 @@ export const SOURCES: Source[] = [
     venue: "Journal of Industrial Ecology, 20(3)",
     url: "https://doi.org/10.1111/jiec.12371",
     usedFor:
-      "Consumption-based (EEIOA) household footprint ranges used to bracket the goods & services domain for individuals.",
-    tag: "Individual footprint",
-  },
-  {
-    id: "scarborough2014",
-    title: "Dietary greenhouse gas emissions of meat-eaters, fish-eaters, vegetarians and vegans in the UK",
-    authors: "Scarborough, P., Appleby, P. N., et al.",
-    year: 2014,
-    venue: "Climatic Change, 125(2)",
-    url: "https://doi.org/10.1007/s10584-014-1169-1",
-    usedFor:
-      "Per-diet greenhouse-gas footprints used to calibrate the food domain across vegan → high-meat diets.",
+      "Consumption-based (EEIOA) household footprint ranges used to bracket the goods & services domain. Also the basis for food being ~20% of a household's GHG footprint — the factor by which Verdex nets food out of its lifestyle benchmarks, since diet is intentionally excluded from the personal score.",
     tag: "Individual footprint",
   },
 ];

@@ -52,13 +52,6 @@ export type CountryCode =
 
 export type CarType = "none" | "petrol" | "diesel" | "hybrid" | "electric";
 export type UsageLevel = "low" | "medium" | "high";
-export type DietType =
-  | "vegan"
-  | "vegetarian"
-  | "pescatarian"
-  | "low_meat"
-  | "average"
-  | "high_meat";
 export type HeatingFuel =
   | "none"
   | "heat_pump"
@@ -92,10 +85,6 @@ export interface IndividualInputs {
   heating: HeatingFuel;
   homeSize: HomeSize;
 
-  // Food
-  diet: DietType;
-  foodWaste: UsageLevel;
-
   // Goods & services
   shopping: ShoppingLevel;
 
@@ -126,8 +115,8 @@ export interface IndividualResult {
   composite: number; // 0-100
   score: number; // 300-850
   band: Band;
-  vsTarget2030: number; // total / 2.5t fair share
-  vsCountryAvg: number | null; // total / national avg lifestyle footprint
+  vsTarget2030: number; // total / non-food 1.5C fair share
+  vsCountryAvg: number | null; // total / national avg (non-food) lifestyle footprint
   recommendations: Recommendation[];
 }
 

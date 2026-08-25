@@ -76,11 +76,16 @@ _Int. J. Greenhouse Gas Control_, 17.** <https://doi.org/10.1016/j.ijggc.2013.05
 
 **Ivanova, D., et al. (2016). “Environmental Impact Assessment of Household
 Consumption.” _J. Industrial Ecology_, 20(3).** — consumption‑based (EEIOA)
-household footprint ranges → bracket the **goods & services** domain.
+household footprint ranges → bracket the **goods & services** domain, and the
+basis for food being **~20%** of a household GHG footprint.
 
-**Scarborough, P., et al. (2014). “Dietary greenhouse gas emissions of
-meat‑eaters, fish‑eaters, vegetarians and vegans in the UK.” _Climatic Change_,
-125(2).** — per‑diet footprints → calibrate the **food** domain (vegan → high‑meat).
+**How Verdex uses the food figure:** the personal score **deliberately excludes
+diet** — what a person eats is a personal/cultural choice a green *credit* score
+should not moralise, and it is one of the noisiest self‑reported categories.
+Rather than drop food from the footprint while leaving the target untouched
+(which would inflate every grade), Verdex expresses the fair‑share budget and
+national averages **net of food** (× 0.8), so a non‑food footprint is compared
+with a non‑food budget — like for like.
 
 ---
 
