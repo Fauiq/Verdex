@@ -314,6 +314,12 @@ browser‑side compute; no backend.
 
 ## 14. Key risks & mitigations
 
+See [CHALLENGES.md](CHALLENGES.md) for concrete controls, current-code gaps,
+accountable roles, acceptance criteria, and release gates. Its proposed next
+milestone is a focused company pilot using structured first-party inventory
+uploads, before broad connectors or rewards. These controls are planned, not
+implemented; the current application remains Phase 0.
+
 | Risk | Mitigation |
 | --- | --- |
 | Methodology disputed | Full transparency; versioning; external advisory board |

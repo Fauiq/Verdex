@@ -20,6 +20,9 @@ This repository contains:
   annotated research bibliography, and a product roadmap.
 - The **product plan** in [`docs/PLAN.md`](docs/PLAN.md) and the annotated
   **research foundations** in [`docs/RESEARCH.md`](docs/RESEARCH.md).
+- The **challenge mitigation and delivery plan** in
+  [`docs/CHALLENGES.md`](docs/CHALLENGES.md), covering evidence quality, model
+  validation, fairness, uncertainty, security, and pilot release criteria.
 
 ---
 
